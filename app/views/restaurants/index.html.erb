@@ -1,0 +1,14 @@
+<div class="text-center" style="background-color: #F7F7F7; padding: 40px">
+  <h1>Restaurants</h1>
+  <%= link_to new_restaurant_path, class: "btn btn-primary btn-lg" do %>
+    New Restaurant
+  <% end %>
+</div>
+
+<div class="container-fluid">
+  <div class="row">
+    <% @restaurants.each do |restaurant| %>
+      <%= render partial: 'shared/card', locals: { restaurant: restaurant } %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<h1>Editing Restaurant</h1>
+
+<%= render 'form', restaurant: @restaurant %>
+<%= link_to @restaurant, class: "btn btn-primary" do %>
+    Show
+<% end %>
+<br>
+<%= link_to restaurants_path, class: "btn btn-primary" do %>
+    Back
+  <% end %>
