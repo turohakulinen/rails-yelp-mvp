@@ -1,35 +1,31 @@
+<div class="text-center" style="background-color: #EFF0F1">
+  <h1><%= @restaurant.name %></h1>
+  <h2><%= @restaurant.address %></h2>
+  <p><%= @restaurant.phone_number %></p>
+  <h3><%= @restaurant.category %></h3>
+</div>
 
-<p>
-  <strong>Name:</strong>
-  <%= @restaurant.name %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @restaurant.address %>
-</p>
-
-<p>
-  <strong>Phone number:</strong>
-  <%= @restaurant.phone_number %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @restaurant.category %>
-</p>
-
-<h3>Reviews</h3>
-
-<% @restaurant.reviews.each do |r| %>
-  <br>
-  <h4>Review</h4>
-  <p> <%= r.content %></p>
-  <h4>Rating</h4>
-  <p> <%= r.rating %></p>
-  <br>
+<%= link_to new_restaurant_review_path(@restaurant), class: "btn btn-primary" do %>
+    Add Review
 <% end %>
 
-<%= link_to 'Add Review', new_restaurant_review_path(@restaurant) %> |
-<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
-<%= link_to 'Back', restaurants_path %>
+<%= link_to edit_restaurant_path(@restaurant), class: "btn btn-warning" do %>
+    Edit
+<% end %>
+
+<%= link_to restaurants_path, class: "btn btn-primary" do %>
+    Back
+<% end %>
+
+
+<h2>Reviews</h3>
+
+<% @restaurant.reviews.each do |r| %>
+  <div class="review">
+    <h4>Review</h4>
+    <p> <%= r.content %></p>
+    <h4>Rating</h4>
+    <p> <%= r.rating %></p>
+  </div>
+<% end %>
+
